@@ -1,9 +1,25 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
+import '@testing-library/jest-dom';
+import { initialInputData } from './consts';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', ()=> {
+  test('renders chart list', () => {
+    render(<App />);
+    const list = screen.getByRole('list');
+    const {getAllByRole} = within(list);
+    const items = getAllByRole('listitem');
+    expect(items.length).toBe(initialInputData.length);
+  });
+  test('renders button', () => {
+    render(<App />);
+    const button = screen.getByText('Change Chart Data');
+    expect(button).toBeInTheDocument();
+  });
+  test('renders title', () => {
+    render(<App />);
+    const button = screen.getByText('Spent time(seconds)');
+    expect(button).toBeInTheDocument();
+  });
 });

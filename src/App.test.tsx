@@ -1,14 +1,13 @@
-import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import App from './App';
 import '@testing-library/jest-dom';
 import { initialInputData } from './consts';
 
-describe('App', ()=> {
+describe('App', () => {
   test('renders chart list', () => {
     render(<App />);
     const list = screen.getByRole('list');
-    const {getAllByRole} = within(list);
+    const { getAllByRole } = within(list);
     const items = getAllByRole('listitem');
     expect(items.length).toBe(initialInputData.length);
   });

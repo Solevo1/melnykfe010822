@@ -1,10 +1,11 @@
 import {
-  FC, useEffect, useRef, useState,
+  FC, useEffect, useState,
 } from 'react';
 import './App.css';
 import ChartRow from './components/ChartRow/ChartRow';
 
 import { DataObject, initialInputData } from './consts';
+import { sumCallback } from './helpers';
 
 const App: FC = () => {
   const
@@ -17,13 +18,12 @@ const App: FC = () => {
     );
   };
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (buttonRef.current) buttonRef.current.click();
-    }, 30000);
-    return () => clearInterval(timer);
-  }, []);
+    const timer = setTimeout(() => handleButtonCLick(), 30000);
+    return () => clearTimeout(timer);
+  }, [chartData]);
+
+  const sumTime = chartData.reduce(sumCallback, 0);
 
   return (
     <div className="App">
@@ -35,10 +35,11 @@ const App: FC = () => {
             chartData={chartData}
             chartItem={chartItem}
             index={index}
+            sumTime={sumTime}
           />
         ))}
       </ul>
-      <button type="button" ref={buttonRef} onClick={handleButtonCLick}>
+      <button type="button" onClick={handleButtonCLick}>
         Change Chart Data
       </button>
     </div>

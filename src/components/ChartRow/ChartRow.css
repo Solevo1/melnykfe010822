@@ -13,6 +13,7 @@
 .ChartRow-container {
   display: flex;
   width: 100%;
+  background-color: lightgray;
 }
 
 .ChartRow-section {
@@ -25,5 +26,4 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
 }

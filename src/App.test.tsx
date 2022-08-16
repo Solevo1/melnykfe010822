@@ -18,7 +18,7 @@ describe('App', () => {
   });
   test('renders title', () => {
     render(<App />);
-    const button = screen.getByText('Spent time(seconds)');
-    expect(button).toBeInTheDocument();
+    const title = screen.getByText('Spent time(seconds)');
+    expect(title).toBeInTheDocument();
   });
 });

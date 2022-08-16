@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/melnykfe010822/static/css/main.6e407c70.css",
+    "main.js": "/melnykfe010822/static/js/main.1964c056.js",
+    "index.html": "/melnykfe010822/index.html",
+    "main.6e407c70.css.map": "/melnykfe010822/static/css/main.6e407c70.css.map",
+    "main.1964c056.js.map": "/melnykfe010822/static/js/main.1964c056.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e407c70.css",
+    "static/js/main.1964c056.js"
+  ]
+}
